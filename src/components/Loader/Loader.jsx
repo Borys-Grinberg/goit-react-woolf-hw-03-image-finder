@@ -1,4 +1,4 @@
-// Loader.js
+// components/Loader/Loader.js
 import React from 'react';
 import { BallTriangle } from 'react-loader-spinner';
 

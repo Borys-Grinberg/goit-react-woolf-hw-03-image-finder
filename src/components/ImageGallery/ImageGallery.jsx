@@ -1,10 +1,10 @@
-// ImageGallery.js
+// components/ImageGallery/ImageGallery.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ImageGalleryItem from '..//ImageGalleryItem/ImageGalleryItem';
+import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import styles from './ImageGallery.module.css';
 
-const ImageGallery = ({ query }) => {
+const ImageGallery = ({ query, onImageClick }) => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,11 @@ const ImageGallery = ({ query }) => {
   return (
     <ul className={styles.ImageGallery}>
       {images.map(image => (
-        <ImageGalleryItem key={image.id} image={image} />
+        <ImageGalleryItem
+          key={image.id}
+          image={image}
+          onImageClick={onImageClick}
+        />
       ))}
     </ul>
   );

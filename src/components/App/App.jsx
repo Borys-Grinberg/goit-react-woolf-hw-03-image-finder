@@ -1,10 +1,11 @@
 // src/components/App/App.jsx
+
 import React, { useState } from 'react';
-import Searchbar from '..//Searchbar/Searchbar';
-import ImageGallery from '..//ImageGallery/ImageGallery';
-import Button from '..//Button/Button';
-import Loader from '..//Loader/Loader';
-import Modal from '..//Modal/Modal';
+import Searchbar from '../Searchbar/Searchbar';
+import ImageGallery from '../ImageGallery/ImageGallery';
+import Button from '../Button/Button';
+import Loader from '../Loader/Loader';
+import Modal from '../Modal/Modal';
 import styles from './App.module.css';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
     setQuery(newQuery);
     setPage(1);
     setImages([]);
+    setIsLoading(true);
   };
 
   const handleLoadMore = () => {
@@ -42,7 +44,13 @@ const App = () => {
         onImageClick={handleImageClick}
       />
       {images.length > 0 && (
-        <Button query={query} setPage={setPage} setImages={setImages} />
+        <Button
+          query={query}
+          page={page}
+          setPage={setPage}
+          setImages={setImages}
+          onLoadMore={handleLoadMore}
+        />
       )}
       {isLoading && <Loader />}
       {selectedImageUrl && (
