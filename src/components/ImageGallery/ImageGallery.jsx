@@ -8,7 +8,7 @@ export const ImageGallery = ({ images, toggleCurrentImage }) => {
       {images.map(img => {
         return (
           <ImageGalleryItem
-            key={nanoid()} // змінив з id картинки на nanoid томущо в респонсі при пагінації на різних сторінках трапляються однакові картинки з однаковими id (пимилка в консолі)
+            key={nanoid()}
             image={img}
             toggleCurrentImage={toggleCurrentImage}
           />
